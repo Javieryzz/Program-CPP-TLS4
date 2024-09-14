@@ -1,0 +1,58 @@
+#include <cstdio>
+#include <cstdlib>
+
+void Menu() {
+    std::printf("Pilih operasi:\n");
+    std::printf("1. Pertambahan\n");
+    std::printf("2. Pengurangan\n");
+    std::printf("3. Perkalian\n");
+    std::printf("4. Pembagian\n");
+    std::printf("0. Keluar\n");
+}
+
+int main() {
+    int choice;
+    double a, b, result;
+
+    while (true) {
+        Menu();
+        std::printf("Masukkan Pilihan: ");
+        std::scanf("%d", &choice);
+
+        if (choice == 0) {
+            break;
+        }
+
+        std::printf("Masukkan dua angka: ");
+        std::scanf("%lf %lf", &a, &b);
+
+        switch (choice) {
+            case 1  :
+                result = a + b;
+                std::printf("Hasil pertambahan: %.2f\n", result);
+                break;
+            case 2:
+                result = a - b;
+                std::printf("Hasil Pengurangan: %.2f\n", result);
+                break;
+            case 3:
+                result = a * b;
+                std::printf("Hasil Perkalian: %.2f\n", result);
+                break;
+            case 4:
+                if (b != 0) {
+                    result = a / b;
+                    std::printf("Hasil Pembagian: %2f.\n", result);
+                } else {
+                    std::printf("Error: tidak boleh dibagi dengan nol.\n");
+                }
+                break;
+            default:
+                std::printf("Pilihan tidak valid, coba lagi");
+                break;
+        }
+    }
+
+    std::printf("Terima kasih sudah mencoba kalkulatornya^_^.\n");
+    return 0;
+}
